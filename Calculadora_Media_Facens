@@ -1,0 +1,68 @@
+#include <iostream>
+#include <stdlib.h>
+#include <string>
+using namespace std;
+
+int main() { // chave principal onde nosso código vai ser escrito
+   char continuar; // cria uma variavel tipo char
+   string nome; // cria uma variavel tipo string
+   int idade; // cria uma variavel tipo int
+   int i = 0; // cria uma variavel tipo int e a atribui um valor
+   bool login_sucesso = false; // cria uma variavel tipo bool e a atribui um valor
+
+   cout << "Seja bem vindo a tela de login\n\n"; // mostra uma mensagem inicial ao usuario
+
+   do{ // código a ser executado enquanto a condição "while" for verdadeira
+
+   cout << "Digite seu nome: "; // pede uma informacao do usuario
+   cin >> nome; // registra a resposta do usuario como o valor de uma variavel
+
+   cout << "Digite seu RA: "; // pede uma informacao do usuario
+   cin >> idade; // registra a resposta do usuario como o valor de uma variavel
+   
+        {
+            cout << "Login realizado com sucesso!\n\n"; // mostra uma mensagem ao usuario
+            login_sucesso=true; // muda o valor da variavel para verdadeiro
+        }
+
+    double ac1, ac2, ag, af; // cria novas variaveis tipo double
+
+    cout << "Digite a sua nota da ac1: "; // pede uma informacao do usuario
+    cin >> ac1; // registra a resposta do usuario como o valor de uma variavel
+
+    cout << "Digite a sua nota da ac2: "; // pede uma informacao do usuario
+    cin >> ac2; // registra a resposta do usuario como o valor de uma variavel
+
+    cout << "Digite a sua nota da ag: "; // pede uma informacao do usuario
+    cin >> ag; // registra a resposta do usuario como o valor de uma variavel
+
+    cout << "Digite a sua nota da af: "; // pede uma informacao do usuario
+    cin >> af; // registra a resposta do usuario como o valor de uma variavel
+
+
+    ac1 = (ac1 * 0.15); // calcula o valor de ac1 com base no seu impacto na media
+    ac2 = (ac2 * 0.35); // calcula o valor de ac2 com base no seu impacto na media
+    ag = (ag * 0.10); // calcula o valor de ag com base no seu impacto na media
+    af = (af * 0.50); // calcula o valor de af com base no seu impacto na media
+
+    double soma = (ac1 + ac2 + af + ag); // calcula a media do usuario com base nas notas
+
+    cout << "A sua média do semestre foi: " << soma << endl << endl; // informa ao usuario sua media no semestre
+
+    if (soma >= 5) { // se o valor da media for maior ou igual a 5, o usuario receberá uma mensagem de que foi aprovado no semestre
+        cout << "Parabéns! Você foi aprovado " << nome << " " << idade << endl;
+        
+    } else if (soma >=3 && soma <5) { // se o valor da media estiver entre 3 e 5, o candidato receberá uma mensagem de que precisa passar por uma prova substitutiva
+        cout << "Você está em recuperação. Deverá fazer uma prova substitutiva " << nome << " " << idade << endl;
+        
+    } else if (soma < 3) { // se o valor da media estiver abaixo de 3, o candidato receberá uma mensagem de que foi reprovado no semestre
+        cout << "Você foi reprovado :( " << nome << " " << idade << endl;
+    }
+
+    cout << "Deseja continuar? (s/n) >>>"; // pergunta se o usuario gostaria de continuar
+    cin >> continuar; // atribui a resposta do usuario a variavel
+
+   } while (continuar == 's' || continuar == 'S'); // o codigo dentro da chave "do" continuara rodando enquanto a variavel "continuar" for igual a s
+
+    return 0;
+}
